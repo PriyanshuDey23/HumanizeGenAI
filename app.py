@@ -58,13 +58,13 @@ if st.button("Start Humanizer"):
     st.download_button(
             label="Download as TXT",
             data=convert_to_txt(response),
-            file_name="paraphrased_text.txt",
+            file_name="human.txt",
             mime="text/plain",
         )
     st.download_button(
             label="Download as DOCX",
             data=convert_to_docx(response),
-            file_name="paraphrased_text.docx",
+            file_name="human.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         )    
     
