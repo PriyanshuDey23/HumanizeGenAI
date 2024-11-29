@@ -6,6 +6,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.llm import LLMChain
 import fitz
 from prompt import *
+from utils import *
 
 # Load environment variables
 load_dotenv()
@@ -51,6 +52,20 @@ else:
 # Generate Plagarism check
 if st.button("Start Humanizer"):
     response=generate_human_text(user_input=user_input)
+    st.subheader("Humanizer Text:")
     st.write(response)
-
+    # Download options
+    st.download_button(
+            label="Download as TXT",
+            data=convert_to_txt(response),
+            file_name="paraphrased_text.txt",
+            mime="text/plain",
+        )
+    st.download_button(
+            label="Download as DOCX",
+            data=convert_to_docx(response),
+            file_name="paraphrased_text.docx",
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        )    
+    
 
